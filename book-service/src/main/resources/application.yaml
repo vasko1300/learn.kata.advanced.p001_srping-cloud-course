@@ -1,1 +1,28 @@
+server:
+  port: 8889 # Порт взял из настроек config-client. Нужно ли указывать другой?
+spring:
+  application:
+    name: book-service
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+        service-id: config-server
+      fail-fast: true               # клиент упадёт, если сервер недоступен
+  profiles:
+    active: dev                     # профиль, который будет запрошен
+# Настройки Eureka перенесены в Config Server
+#eureka:
+#  client:
+#    enabled: true
+#    healthcheck:
+#      enabled: true
+#    service-url:
+#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+#  instance:
+#    lease-renewal-interval-in-seconds: 35
+#    prefer-ip-address: true
 
