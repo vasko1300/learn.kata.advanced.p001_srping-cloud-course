@@ -1,0 +1,32 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/vasko1300/learn.kata.advanced.p001_ms-config-properties
+          default-label: master
+          search-paths:
+            - "{application}/{profile}"
+eureka:
+  client:
+    enabled: true
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    lease-renewal-interval-in-seconds: 35
+    prefer-ip-address: true
+#    ip-address: 127.0.0.1
+#    instance-id: ${spring.application.name}:${random.uuid}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
