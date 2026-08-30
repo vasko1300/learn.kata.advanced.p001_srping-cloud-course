@@ -11,7 +11,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>org.example</groupId>
+    <groupId>ru.vasko1300</groupId>
     <artifactId>client-service</artifactId>
     <version>1.0-SNAPSHOT</version>
 
