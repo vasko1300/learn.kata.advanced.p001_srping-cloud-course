@@ -24,4 +24,9 @@ public class ClientController {
         log.info("Returning {} books", books.size());
         return books;
     }
+
+    @GetMapping("/test")
+    public String getBooksFromClient() {
+        return "client-service2";
+    }
 }
